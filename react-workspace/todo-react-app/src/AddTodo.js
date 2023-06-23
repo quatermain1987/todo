@@ -11,20 +11,21 @@ const AddTodo = (props) => {
     const onInputChange = (e) => {
         setItem({ title: e.target.value });
         console.log(item);
-    }
+    };
 
     // onButtonClick function
     const onButtonClick = () => {
         addItem(item);
-        setItem({ titel: "" });
-    }
+        setItem({ title: "" });
+    };
 
     // enterKeyEventHandler function
     const enterKeyEventHandler = (e) => {
         if (e.key === 'Enter') {
             onButtonClick();
+            
         }
-    }
+    };
 
     // onInputeChange 함수 TextField에 연결
     return (
