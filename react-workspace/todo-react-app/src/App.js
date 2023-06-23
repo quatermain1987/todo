@@ -1,17 +1,39 @@
 import './App.css';
 import Todo from './Todo';
 import React, { useState } from "react";
+import { Container, List, Paper } from "@mui/material";
+import AddTodo from './AddTodo';
 
 function App() {
-  const [itme, setItem] = useState({
-    id: "0",
-    title: "title1",
-    done: true
-  });
+  const [items, setItems] = useState([
+    {
+      id: "0",
+      title: "title1",
+      done: true
+    },
+    {
+      id: "1",
+      title: "title2",
+      done: true
+    }
+  ]);
+
+  let todoItems = items.length > 0 && (
+    <Paper style={{ margin: 16 }}>
+      <List>
+        {items.map((item) => (
+          <Todo item={item} key={item.id} />
+        ))}
+      </List>
+    </Paper>
+  );
 
   return (
     <div className="App">
-      <Todo />
+      <Container maxWidth="md">
+        <AddTodo />
+        <div className='TodoList'>{todoItems}</div>
+      </Container>
     </div>
   );
 }
