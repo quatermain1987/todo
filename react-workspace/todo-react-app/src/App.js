@@ -6,7 +6,7 @@ import AddTodo from './AddTodo';
 
 function App() {
   const [items, setItems] = useState([
-    {
+    /*{
       id: "0",
       title: "title1",
       done: true
@@ -15,7 +15,7 @@ function App() {
       id: "1",
       title: "title2",
       done: true
-    }
+    }*/
   ]);
 
   const addItem = (item) => {
@@ -37,6 +37,8 @@ function App() {
     setItems([...newItems]);
   };
 
+  // JSX 코드를 변수에 담는다.
+  // 연산자 변수 > items.length > 0 이 false인 경우 그 이후 값을 확인하지 않는다.
   let todoItems = items.length > 0 && (
     <Paper style={{ margin: 16 }}>
       <List>

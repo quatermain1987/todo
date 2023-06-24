@@ -29,12 +29,14 @@ const Todo = (props) => {
 
     const turnOffReadOnly = () => {
         setReadOnly(false);
+        console.log('turnOffReadOnly');
     };
 
     const turnOnReadOnly = (e) => {
         if (e.key === "Enter") {
             setReadOnly(true);
         }
+        console.log('turnOffReadOnly');
     };
 
     const checkboxEventHandler = (e) => {
