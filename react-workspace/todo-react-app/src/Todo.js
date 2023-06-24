@@ -24,6 +24,7 @@ const Todo = (props) => {
     const editEventHandler = (e) => {
         item.title = e.target.value;
         editItem();
+        // console.log(item.title);
     };
 
     const turnOffReadOnly = () => {
@@ -36,9 +37,16 @@ const Todo = (props) => {
         }
     };
 
+    const checkboxEventHandler = (e) => {
+        item.done = e.target.checked;
+        editItem();
+        // console.log(item.done);
+    }
+
     return (
         <ListItem>
-            <Checkbox checked={item.done} />
+            <Checkbox checked={item.done}
+            onChange={checkboxEventHandler} />
             <ListItemText>
                 <InputBase
                     inputProps={{
