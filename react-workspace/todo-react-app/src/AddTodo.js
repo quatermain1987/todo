@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Button, Grid, TextField } from "@mui/material";
 
+// todoList를 추가할 AddTodo Component
 const AddTodo = (props) => {
     // 사용자의 입력을 저정할 오브젝트
     const [item, setItem] = useState({ title: "" });
