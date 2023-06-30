@@ -14,33 +14,35 @@ function App() {
   }, []);
 
 
-  // const addItem = (item) => {
-  //   item.id = "ID-" + items.length; // key를 위한 id
-  //   item.done = false; // done 초기화
-  //   // 업데이트는 반드시 setItems로 하고 새 배열을 만들어 주어야 한다.
-  //   setItems([...items, item]);
-  //   console.log("items : ", items);
-  // };
+  /* frontend 독립 실행 코드
+    const addItem = (item) => {
+      item.id = "ID-" + items.length; // key를 위한 id
+      item.done = false; // done 초기화
+      // 업데이트는 반드시 setItems로 하고 새 배열을 만들어 주어야 한다.
+      setItems([...items, item]);
+      console.log("items : ", items);
+    };
+    const editItem = () => {
+      setItems([...items]);
+    };
+    const deleteItem = (item) => {
+      // 삭제할 아이템을 찾는다.
+      const newItems = items.filter(e => e.id !== item.id);
+      // 삭제할 아이템을 제외한 아이템들을 재배열한다.
+      setItems([...newItems]);
+    };
+  */
 
   const addItem = (item) => {
     call("/todo", "POST", item)
       .then((response) => setItems(response.data));
   };
 
-  // const editItem = () => {
-  //   setItems([...items]);
-  // };
   const editItem = (item) => {
     call("/todo", "PUT", item)
     .then((response) => setItems(response.data));
   };
 
-  // const deleteItem = (item) => {
-  //   // 삭제할 아이템을 찾는다.
-  //   const newItems = items.filter(e => e.id !== item.id);
-  //   // 삭제할 아이템을 제외한 아이템들을 재배열한다.
-  //   setItems([...newItems]);
-  // };
   const deleteItem = (item) => {
     call("/todo", "DELETE", item)
       .then((response) => setItems(response.data));
