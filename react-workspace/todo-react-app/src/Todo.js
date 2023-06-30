@@ -22,9 +22,7 @@ const Todo = (props) => {
 
     // editEventHandler
     const editEventHandler = (e) => {
-        item.title = e.target.value;
-        editItem();
-        // console.log(item.title);
+        setItem({...item, title: e.target.value});
     };
 
     const turnOffReadOnly = () => {
@@ -37,11 +35,14 @@ const Todo = (props) => {
             setReadOnly(true);
         }
         console.log('turnOffReadOnly');
+        // readOnly로 바뀌는 순간 http전송
+        editItem(item);
+
     };
 
     const checkboxEventHandler = (e) => {
         item.done = e.target.checked;
-        editItem();
+        editItem(item);
         // console.log(item.done);
     }
 

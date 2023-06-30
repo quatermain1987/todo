@@ -27,8 +27,12 @@ function App() {
       .then((response) => setItems(response.data));
   };
 
-  const editItem = () => {
-    setItems([...items]);
+  // const editItem = () => {
+  //   setItems([...items]);
+  // };
+  const editItem = (item) => {
+    call("/todo", "PUT", item)
+    .then((response) => setItems(response.data));
   };
 
   // const deleteItem = (item) => {
