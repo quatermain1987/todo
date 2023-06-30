@@ -13,13 +13,14 @@ export function call(api, method, request) {
         // GET Method
         options.body = JSON.stringify(request);
     }
-
-    return fetch(options.url, options).then((reponse) => {
-        if (reponse.state === 200) {
-            return reponse.json();
+    
+    return fetch(options.url, options).then((response) => {
+        if (response.status === 200) {
+            return response.json();
+            // json 형태의 reponse로 반환
         }
     }).catch((error) => {
-        console.log("http error")
-        console.log(error)
+        console.log("http error");
+        console.log(error);
     });
 }
