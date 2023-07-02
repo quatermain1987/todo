@@ -43,6 +43,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             null, //
             AuthorityUtils.NO_AUTHORITIES
         );
+        // 서버에 인증된 사용자를 등록하는 과정
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
         securityContext.setAuthentication(authentication);
