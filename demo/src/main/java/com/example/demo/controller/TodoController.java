@@ -37,8 +37,9 @@ public class TodoController {
 //	}
 
 	@PostMapping
-	public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId,
+	public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId, 
 															@RequestBody TodoDTO dto) {
+		// @AuthenticationPrincipal > controller 작성시 context에 들어있는 userId를 스프링이 꺼내 올 수 있도록 도와주는 어노테이션
 		try {
 			// (1) TodoEntity로 변환한다.
 			TodoEntity entity = TodoDTO.toEntity(dto);
