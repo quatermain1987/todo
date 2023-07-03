@@ -18,6 +18,11 @@ export function call(api, method, request) {
         if (response.status === 200) {
             return response.json();
             // json 형태의 reponse로 반환
+        } else if(response.status === 403){
+            window.location.href = "/Login"; // redirect
+        } else {
+            Promise.reject(response);
+            throw Error(response);
         }
     }).catch((error) => {
         console.log("http error");
