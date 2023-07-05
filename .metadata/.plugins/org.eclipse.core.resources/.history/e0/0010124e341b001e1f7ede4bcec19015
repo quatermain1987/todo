@@ -23,7 +23,7 @@ public class UserService {
 			log.warn("Username already exists {}", username);
 			throw new RuntimeException("Username already exists");
 		}
-		log.info(username + " signup!!");
+
 		return userRepository.save(userEntity);
 	}
 
