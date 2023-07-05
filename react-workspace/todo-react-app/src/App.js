@@ -1,9 +1,18 @@
-import './App.css';
-import Todo from './Todo';
+import "./App.css";
+import Todo from "./Todo";
 import React, { useState, useEffect } from "react";
-import { Container, List, Paper } from "@mui/material";
-import AddTodo from './AddTodo';
-import { call } from './service/ApiService'; // fetch 간소화 ApiService
+import {
+  Container,
+  List,
+  Paper,
+  Grid,
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import AddTodo from "./AddTodo";
+import { call, signout } from "./service/ApiService";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -40,7 +49,7 @@ function App() {
 
   const editItem = (item) => {
     call("/todo", "PUT", item)
-    .then((response) => setItems(response.data));
+      .then((response) => setItems(response.data));
   };
 
   const deleteItem = (item) => {
@@ -65,8 +74,27 @@ function App() {
     </Paper>
   );
 
+  // navigationBar 추가
+  let navigationBar = (
+    <AppBar position="static">
+      <Toolbar>
+        <Grid justifyContent="space-between" container>
+          <Grid item>
+            <Typography variant="h6">TodoList</Typography>
+          </Grid>
+          <Grid item>
+            <Button color="inherit" raised="true" onClick={signout}>
+              로그아웃
+            </Button>
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  );
+
   return (
     <div className="App">
+      {navigationBar} {/* 네비게이션 바 렌더링 */}
       <Container maxWidth="md">
         <AddTodo addItem={addItem} />
         <div className='TodoList'>{todoItems}</div>

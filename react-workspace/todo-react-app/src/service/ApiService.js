@@ -25,11 +25,9 @@ export function call(api, method, request) {
     return fetch(options.url, options).then((response) => {
         if (response.status === 200) {
             return response.json();
-            console.log(options.url)
             // json 형태의 response로 반환
         } else if (response.status === 403) {
-            console.log(options.url)
-            // window.location.href = "/login"; // redirect
+            window.location.href = "/login"; // redirect
         } else {
             new Error(response);
         }
@@ -50,4 +48,9 @@ export function signin(userDTO) {
                 window.location.href = "/";
             }
         });
+}
+
+export function signout() {
+    localStorage.setItem("ACCESS_TOKEN", null);
+    window.location.href = "/login";
 }
