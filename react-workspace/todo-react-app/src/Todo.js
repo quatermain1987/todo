@@ -23,7 +23,7 @@ const Todo = (props) => {
 
     // editEventHandler
     const editEventHandler = (e) => {
-        setItem({...item, title: e.target.value});
+        setItem({ ...item, title: e.target.value });
     };
 
     const turnOffReadOnly = () => {
@@ -47,10 +47,17 @@ const Todo = (props) => {
         // console.log(item.done);
     }
 
+    const calendarEventHandler = (e) => {
+        
+
+
+        setItem({ ...item, date: e.target.value });
+    }
+
     return (
         <ListItem>
             <Checkbox checked={item.done}
-            onChange={checkboxEventHandler} />
+                onChange={checkboxEventHandler} />
             <ListItemText>
                 <InputBase
                     inputProps={{
@@ -69,7 +76,9 @@ const Todo = (props) => {
                 />
             </ListItemText>
             <ListItemSecondaryAction>
-                <IconButton aria-label="Calendar">
+                <IconButton aria-label="Calendar"
+                    onChange={editEventHandler}
+                    onClick={calendarEventHandler}>
                     <CalendarMonth />
                 </IconButton>
                 <IconButton aria-label="Delete Todo"
