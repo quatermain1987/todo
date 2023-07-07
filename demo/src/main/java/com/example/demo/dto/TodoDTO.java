@@ -29,6 +29,7 @@ public class TodoDTO {
 	    return TodoEntity.builder()
 	        .id(dto.getId())
 	        .title(dto.getTitle())
+	        .date(dto.getDate())
 	        .done(dto.isDone())
 	        .build();
 	  }
