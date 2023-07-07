@@ -1,7 +1,5 @@
 package com.example.demo.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,6 +25,5 @@ public class TodoEntity {
 	private String id;
 	private String userId;
 	private String title;
-	private Date date;
 	private boolean done;
 }

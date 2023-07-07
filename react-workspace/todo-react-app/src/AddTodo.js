@@ -17,14 +17,13 @@ const AddTodo = (props) => {
     // onButtonClick function
     const onButtonClick = () => {
         addItem(item);
-        setItem({ title: "" });
+        setItem({ title: "" }); // 리스트 생성 후 인풋박스 초기화
     };
 
     // enterKeyEventHandler function
     const enterKeyEventHandler = (e) => {
         if (e.key === 'Enter') {
             onButtonClick();
-            
         }
     };
 
