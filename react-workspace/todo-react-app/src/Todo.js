@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
 import CalendarMonth from "@mui/icons-material/CalendarMonth";
+import TodoCalendar from "./TodoCalendar";
 
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
@@ -48,10 +49,8 @@ const Todo = (props) => {
     }
 
     const calendarEventHandler = (e) => {
-        
-
-
-        setItem({ ...item, date: e.target.value });
+        <TodoCalendar />
+        console.log("@@")
     }
 
     return (
@@ -81,6 +80,7 @@ const Todo = (props) => {
                     onClick={calendarEventHandler}>
                     <CalendarMonth />
                 </IconButton>
+                <TodoCalendar />
                 <IconButton aria-label="Delete Todo"
                     onClick={deleteEventHandler} >
                     <DeleteOutlined />
