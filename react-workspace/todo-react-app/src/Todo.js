@@ -80,7 +80,9 @@ const Todo = (props) => {
                     <CalendarMonth />
                 </IconButton>
                 <div id={item.id} style={{ display: "none" }}>
-                    <TodoCalendar />
+                    <TodoCalendar
+                        item={item}
+                        editItem={editItem} />
                 </div>
                 <IconButton aria-label="Delete Todo"
                     onClick={deleteEventHandler} >

@@ -16,9 +16,7 @@ const AddTodo = (props) => {
 
     // onButtonClick function
     const onButtonClick = () => {
-        let now = new Date();
-        let today = now.getDate() + 1;
-        item.date = today;
+        item.date = new Date();
         addItem(item);
         setItem({ title: "" }); // 리스트 생성 후 인풋박스 초기화
     };

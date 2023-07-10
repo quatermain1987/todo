@@ -7,17 +7,17 @@ const TodoCalendar = (props) => {
     const [item, setItem] = useState(props.item);
     const editItem = props.editItem;
 
-    const editEventHandler = (e) => {
-        item.date = e.target.value;
+    const editEventHandler = (value) => {
+        item.date = value;
         editItem(item);
-        setItem({ ...item, date: e.target.value });
+        setItem({ ...item, date: value });
         let event = document.getElementById(item.id);
         event.style.display = ((event.style.display !== 'none') ? 'none' : 'block');
     };
 
     return (
         <div>
-            <Calendar onChange={editEventHandler} value={item.date} />
+            <Calendar onClickDay={editEventHandler} value={item.date}/>
         </div>
     );
 
