@@ -14,8 +14,12 @@ import TodoCalendar from "./TodoCalendar";
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
     const [readOnly, setReadOnly] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const deleteItem = props.deleteItem;
     const editItem = props.editItem;
+
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
 
     // deleteEventHandler
     const deleteEventHandler = () => {
@@ -48,11 +52,6 @@ const Todo = (props) => {
         // console.log(item.done);
     }
 
-    const calendarEventHandler = () => {
-        let e = document.getElementById(item.id);
-        e.style.display = ((e.style.display !== 'none') ? 'none' : 'block');
-    }
-
     return (
         <ListItem>
             <Checkbox checked={item.done}
@@ -76,13 +75,14 @@ const Todo = (props) => {
             </ListItemText>
             <ListItemSecondaryAction>
                 <IconButton aria-label="Calendar"
-                    onClick={calendarEventHandler}>
+                    onClick={openModal}>
                     <CalendarMonth />
                 </IconButton>
-                <div id={item.id} style={{ display: "none" }}>
+                <div id={item.id} style={{ display: isOpen ? "block" : "none" }}>
                     <TodoCalendar
                         item={item}
-                        editItem={editItem} />
+                        editItem={editItem}
+                        closeModal={closeModal} />
                 </div>
                 <IconButton aria-label="Delete Todo"
                     onClick={deleteEventHandler} >

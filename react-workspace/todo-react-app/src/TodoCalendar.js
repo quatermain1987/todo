@@ -6,13 +6,13 @@ const TodoCalendar = (props) => {
 
     const [item, setItem] = useState(props.item);
     const editItem = props.editItem;
+    const closeModal = props.closeModal;
 
     const editEventHandler = (value) => {
         item.date = value;
         editItem(item);
         setItem({ ...item, date: value });
-        let event = document.getElementById(item.id);
-        event.style.display = ((event.style.display !== 'none') ? 'none' : 'block');
+        closeModal();
     };
 
     return (
