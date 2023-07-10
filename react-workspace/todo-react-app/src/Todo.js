@@ -48,9 +48,9 @@ const Todo = (props) => {
         // console.log(item.done);
     }
 
-    const calendarEventHandler = (e) => {
-        <TodoCalendar />
-        console.log("@@")
+    const calendarEventHandler = () => {
+        let e = document.getElementById(item.id);
+        e.style.display = ((e.style.display !== 'none') ? 'none' : 'block');
     }
 
     return (
@@ -67,7 +67,7 @@ const Todo = (props) => {
                     onKeyDown={turnOnReadOnly}
                     onChange={editEventHandler}
                     type="text"
-                    id={item.id}
+                    // id={item.id}
                     name={item.id}
                     value={item.title}
                     multiline={true}
@@ -76,11 +76,12 @@ const Todo = (props) => {
             </ListItemText>
             <ListItemSecondaryAction>
                 <IconButton aria-label="Calendar"
-                    onChange={editEventHandler}
                     onClick={calendarEventHandler}>
                     <CalendarMonth />
                 </IconButton>
-                <TodoCalendar />
+                <div id={item.id} style={{ display: "none" }}>
+                    <TodoCalendar />
+                </div>
                 <IconButton aria-label="Delete Todo"
                     onClick={deleteEventHandler} >
                     <DeleteOutlined />
