@@ -49,7 +49,6 @@ const Todo = (props) => {
     const checkboxEventHandler = (e) => {
         item.done = e.target.checked;
         editItem(item);
-        // console.log(item.done);
     }
 
     return (
@@ -66,7 +65,6 @@ const Todo = (props) => {
                     onKeyDown={turnOnReadOnly}
                     onChange={editEventHandler}
                     type="text"
-                    // id={item.id}
                     name={item.id}
                     value={item.title}
                     multiline={true}
