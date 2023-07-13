@@ -10,6 +10,7 @@ import {
 import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
 import CalendarMonth from "@mui/icons-material/CalendarMonth";
 import TodoCalendar from "./TodoCalendar";
+import Dday from "./Dday";
 
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
@@ -72,7 +73,8 @@ const Todo = (props) => {
                 />
             </ListItemText>
             <ListItemSecondaryAction>
-                <IconButton aria-label="Calendar"
+                <Dday item={item} />
+                <IconButton aria-label="Calendar Todo"
                     onClick={openModal}>
                     <CalendarMonth />
                 </IconButton>
