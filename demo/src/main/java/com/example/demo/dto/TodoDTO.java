@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 public class TodoDTO {
 	private String id;
 	private String title;
-	private Date date;
+//	private Date date;
 	private boolean done;
 
 	public TodoDTO(final TodoEntity entity) {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
-		this.date = entity.getDate();
+//		this.date = entity.getDate();
 		this.done = entity.isDone();
 	}
 	
@@ -29,7 +29,7 @@ public class TodoDTO {
 	    return TodoEntity.builder()
 	        .id(dto.getId())
 	        .title(dto.getTitle())
-	        .date(dto.getDate())
+//	        .date(dto.getDate())
 	        .done(dto.isDone())
 	        .build();
 	  }

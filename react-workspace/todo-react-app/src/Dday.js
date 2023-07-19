@@ -13,7 +13,7 @@ const Dday = (props) => {
 
     return (
         <b>
-            1&nbsp;&nbsp;
+            1
         </b>
     );
 

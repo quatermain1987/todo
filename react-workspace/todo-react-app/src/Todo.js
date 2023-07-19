@@ -8,19 +8,19 @@ import {
     IconButton,
 } from "@mui/material";
 import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
-import CalendarMonth from "@mui/icons-material/CalendarMonth";
-import TodoCalendar from "./TodoCalendar";
-import Dday from "./Dday";
+// import CalendarMonth from "@mui/icons-material/CalendarMonth";
+// import TodoCalendar from "./TodoCalendar";
+// import Dday from "./Dday";
 
 const Todo = (props) => {
     const [item, setItem] = useState(props.item);
     const [readOnly, setReadOnly] = useState(true);
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
     const deleteItem = props.deleteItem;
     const editItem = props.editItem;
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    // const openModal = () => setIsOpen(true);
+    // const closeModal = () => setIsOpen(false);
 
     // deleteEventHandler
     const deleteEventHandler = () => {
@@ -72,7 +72,7 @@ const Todo = (props) => {
                     fullWidth={true}
                 />
             </ListItemText>
-            <ListItemSecondaryAction>
+            {/* <ListItemSecondaryAction>
                 <Dday item={item} />
                 <IconButton aria-label="Calendar Todo"
                     onClick={openModal}>
@@ -84,6 +84,8 @@ const Todo = (props) => {
                         editItem={editItem}
                         closeModal={closeModal} />
                 </div>
+            </ListItemSecondaryAction> */}
+            <ListItemSecondaryAction>
                 <IconButton aria-label="Delete Todo"
                     onClick={deleteEventHandler} >
                     <DeleteOutlined />
